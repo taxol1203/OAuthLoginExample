@@ -1,0 +1,39 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  output:
+    ansi:
+      enabled: always
+  datasource:
+    url: jdbc:postgresql://localhost:5432/webflux
+    username: postgres
+    password: taxol
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      hibernate.enable_lazy_load_no_trans: true
+      hibernate:
+        show_sql: true
+    database: postgresql
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 1008995572641-fukkvpfsn88ln9mvdkkrhsbd7sfnd15q.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile,email
+  main:
+    allow-circular-references: true
+
+server:
+  port: 8080
+  error:
+    include-message: always
+  shutdown: graceful
